@@ -9,6 +9,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float turnThrust = 75f;
     [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem mainThrustParticle;
+    [SerializeField] ParticleSystem leftThrustParticle;
+    [SerializeField] ParticleSystem rightThrustParticle;
+
     AudioSource audioSource;
     
 
@@ -29,37 +33,84 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust()
     {
-       if (Input.GetKey(KeyCode.Space)) {
-          rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-          if (!audioSource.isPlaying){
-             audioSource.PlayOneShot(mainEngine);
-          }
-       }
+       if (Input.GetKey(KeyCode.Space))
+        {
+            StartThrust();
+        }
 
-       else{
-           audioSource.Stop();
-       }
+        else
+        {
+            StopThrust();
+        }
     }
 
     void ProcessRotation()
-    {
-       if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-       {
-       
-       }
+        {
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
         
-      else if (Input.GetKey(KeyCode.A))
-        {
-            turnRocket(turnThrust);
         }
+            
+        else if (Input.GetKey(KeyCode.A))
+            {
+                rotateLeft();
+            }
 
-        else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
+            {
+                rotateRight();
+
+            }
+            else
+            {
+                StopRotate();
+            }
+        }
+    
+
+    private void StartThrust()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioSource.isPlaying)
         {
-            turnRocket(-turnThrust);
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!mainThrustParticle.isPlaying)
+        {
+            mainThrustParticle.Play();
         }
     }
 
-   
+    private void StopThrust()
+    {
+        audioSource.Stop();
+        mainThrustParticle.Stop();
+    }
+
+    private void rotateLeft()
+    {
+        turnRocket(turnThrust);
+        if (!rightThrustParticle.isPlaying)
+        {
+            rightThrustParticle.Play();
+        }
+    }
+
+    private void rotateRight()
+    {
+        turnRocket(-turnThrust);
+        if (!leftThrustParticle.isPlaying)
+        {
+            leftThrustParticle.Play();
+        }
+    }
+
+    private void StopRotate()
+    {
+        rightThrustParticle.Stop();
+        leftThrustParticle.Stop();
+    }
+
     void turnRocket(float rotationPerFrame)
     {
         rb.freezeRotation = true; // this is to freeze so player can rotate. 
