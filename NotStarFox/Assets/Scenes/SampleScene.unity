@@ -216,6 +216,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &792289792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5385345148964270038, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
+  m_PrefabInstance: {fileID: 7007712198373655463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &918740340
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +412,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1690498326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 704300532134632540, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
+  m_PrefabInstance: {fileID: 7007712198373655463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1823564673 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7007712199117021222, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
@@ -471,6 +481,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 704300532134632540, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7007712199117021221, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -519,5 +533,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRig
       objectReference: {fileID: 0}
+    - target: {fileID: 7316043032799807977, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
+      propertyPath: laserArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316043032799807977, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
+      propertyPath: laserArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 792289792}
+    - target: {fileID: 7316043032799807977, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}
+      propertyPath: laserArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 1690498326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc2d9e8d03fcf85409208ab8f171b6a0, type: 3}

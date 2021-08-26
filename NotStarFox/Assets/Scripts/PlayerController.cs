@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("General info")]
+    [Tooltip("speed of user input")]
     [SerializeField] float controlSpeed = 20f;
     [SerializeField] float xRange = 15f;
     [SerializeField] float yRange = 7f;
@@ -11,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float controlPitchF = -10f;
     [SerializeField] float postionYawF = 2f;
     [SerializeField] float controlRollF = -30f;
+    [SerializeField] GameObject[] laserArray;
 
     float yThrow;
     float xThrow;
@@ -26,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         ProcessTranslation();
         ProcessRotaions();
+        ProcessFiring();
     }
 
     private void ProcessRotaions()
@@ -57,5 +62,26 @@ public class PlayerController : MonoBehaviour
         float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+
+    private void ProcessFiring()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            SetLaserActive(true);
+        }
+        else
+        {
+            SetLaserActive(false);
+        }
+    }
+
+    private void SetLaserActive(bool input)
+    {
+        foreach (var laser in laserArray)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = input;
+        }
     }
 }
