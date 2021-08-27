@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 931215227086061728, guid: a13d168ee583f934a86e4117d6a549be, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1120406546917527797, guid: a13d168ee583f934a86e4117d6a549be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -190,10 +194,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1711736135883045892, guid: a13d168ee583f934a86e4117d6a549be, type: 3}
+      propertyPath: crashVFX
+      value: 
+      objectReference: {fileID: 8225501810943840576}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13d168ee583f934a86e4117d6a549be, type: 3}
 --- !u!4 &8162482751330517269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1120406546917527797, guid: a13d168ee583f934a86e4117d6a549be, type: 3}
+  m_PrefabInstance: {fileID: 9136269832583746016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8225501810943840576 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 931215227086061728, guid: a13d168ee583f934a86e4117d6a549be, type: 3}
   m_PrefabInstance: {fileID: 9136269832583746016}
   m_PrefabAsset: {fileID: 0}
